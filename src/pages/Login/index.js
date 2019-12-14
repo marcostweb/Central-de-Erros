@@ -27,9 +27,9 @@ return (
         </h1>
           <form onSubmit={handleSubmit}>
               <input required
-                  type="email" 
-                  id="email" 
-                  placeholder="Seu e-mail"
+                  type="text" 
+                  id="userName" 
+                  placeholder="Seu usuário"
                   value={ email }
                   onChange={event => setEmail(event.target.value)}/>
 
