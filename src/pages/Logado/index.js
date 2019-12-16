@@ -3,18 +3,16 @@ import React from 'react';
 import usuarioLogado from '../../assets/usuario-logado.png'
 
 export default function Logado({ history }){
-  // const [email, setEmail] = useState('')
 
   async function handleSubmit(event){
-    event.preventDefault() // não recarrega a págica que é o padrão
+    event.preventDefault() // não recarrega a página que é o padrão
+    history.push('./busca') 
+  }
 
-    //const response = await api.post('/sessions', { email })
-
-    //const { _id } = response.data;
-
-    //localStorage.setItem('user', _id) //salva na local storage
-
-    history.push('./busca') // muda pra rota ./página sucesso
+  async function closeLogin(event){
+    event.preventDefault() 
+    localStorage.clear() // Limpa a sessão do Storage.
+    history.push('./') // Envia para fazer login novamente.
   }
 
   return (    
@@ -24,6 +22,7 @@ export default function Logado({ history }){
           <p className="my-0"><strong>Olá, seja bem-vindo.</strong> Seu token é: 56456456456dasdasdad454654654</p>
         </div>
         <div className="col-2 col-md-2 text-right pl-0">
+          <span onClick={closeLogin} className="my-1 mx-1">Sair</span>
           <img src={usuarioLogado} alt="Usuário Logado" width="40"/>
         </div>
       </div>  

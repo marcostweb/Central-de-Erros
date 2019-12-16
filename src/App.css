@@ -147,3 +147,14 @@ body, input, button{
 .custom-control-label::after {
   top: 0.15rem !important;
 }
+
+.container .text-right span {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.container .text-right span:hover {
+ color: #333;
+}
