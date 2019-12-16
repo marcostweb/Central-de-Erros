@@ -13,14 +13,11 @@ export default function Login({ history }){
     const myUserName = await api.post('/sessions', { userName })
     const myPassword = await api.post('/sessions', { password })
 
-    console.log("Usuario", userName)
-    console.log("Senha", password)
-
     if ((userName === myUserName.data.userName) && (password === myPassword.data.password)) {
-      localStorage.setItem('@central-de-erros-login', true) //Salva true/false em local storage.
-      history.push('./logado') // Mudança de rota.
+      localStorage.setItem('@central-de-erros-login', true) //Salva true em localStorage.
+      history.push('./logado') // Leva para a tela de busca.
     } else {
-      history.push('./erro') // Mudança de rota.
+      history.push('./erro') // Leva para a mensagem de erro caso o login esteja errado.
     }     
   }
 
