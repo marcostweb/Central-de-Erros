@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-// import api from '../../services/api';
+import api from '../../services/api';
 
 export default function Login({ history }){
-  const [email, setEmail] = useState('')
+  
+  const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
 
   async function handleSubmit(event){
-    event.preventDefault() // não recarrega a págica que é o padrão
+    event.preventDefault() // não recarrega a página que é o padrão
 
-    // const response = await api.post('/sessions', { email })
+    const myUserName = await api.post('/sessions', { userName })
+    const myPassword = await api.post('/sessions', { password })
 
-    // const { _id } = response.data;
+    console.log("Usuario", userName)
+    console.log("Senha", password)
 
-    // localStorage.setItem('user', _id) //salva na local storage
-
-    history.push('./logado') // muda pra rota ./dashboard
+    if ((userName === myUserName.data.userName) && (password === myPassword.data.password)) {
+      localStorage.setItem('@central-de-erros-login', true) //Salva true/false em local storage.
+      history.push('./logado') // Mudança de rota.
+    } else {
+      history.push('./erro') // Mudança de rota.
+    }     
   }
 
 return (    
@@ -30,8 +36,8 @@ return (
                   type="text" 
                   id="userName" 
                   placeholder="Seu usuário"
-                  value={ email }
-                  onChange={event => setEmail(event.target.value)}/>
+                  value={ userName }
+                  onChange={event => setUserName(event.target.value)}/>
 
               <input required
                   type="password" 
