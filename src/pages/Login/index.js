@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+
 import api from '../../services/api';
 
 export default function Login({ history }){
   
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
-
+  
   async function handleSubmit(event){
     event.preventDefault() // não recarrega a página que é o padrão
+    
+    const response = await api.post('/sessions', { userName, password })
 
-    const myUserName = await api.post('/sessions', { userName })
-    const myPassword = await api.post('/sessions', { password })
-
-    if ((userName === myUserName.data.userName) && (password === myPassword.data.password)) {
+    if ((userName === response.data.userName) && (password === response.data.password)) {
       localStorage.setItem('@central-de-erros-login', true) //Salva true em localStorage.
       history.push('./logado') // Leva para a tela de busca.
     } else {
       history.push('./erro') // Leva para a mensagem de erro caso o login esteja errado.
-    }     
+    } 
   }
 
 return (    
