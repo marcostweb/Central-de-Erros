@@ -6,14 +6,13 @@ export default function Logado({ history }){
 
   async function handleSubmit(event){
     event.preventDefault() // não recarrega a página que é o padrão
-    history.push('./busca') 
+    history.push('/busca') 
   }
 
   async function closeLogin(event){
     event.preventDefault() 
     localStorage.clear() // Limpa a sessão do Storage.
-    history.push('./') // Envia para fazer login novamente.
-    window.location.reload()
+    history.push('/') // Envia para fazer login novamente.
   }
 
   return (    

@@ -16,10 +16,10 @@ export default function Login({ history }){
     
     if ((userName === response.data.userName) && (password === response.data.password)) {
       localStorage.setItem('@central-de-erros-login', true) //Salva true em localStorage.
-      history.push('./logado') // Leva para a tela de busca.
+      history.push('/logado') // Leva para a tela de busca.
      // window.location.reload()
     } else {
-      history.push('./erro') // Leva para a mensagem de erro caso o login esteja errado.
+      history.push('/erro') // Leva para a mensagem de erro caso o login esteja errado.
     } 
 
   }

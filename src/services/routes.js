@@ -9,20 +9,19 @@ import Erro from '../pages/Erro'
 import Logado from '../pages/Logado'
 import Busca from '../pages/Busca'
 
-
-console.log('Teste logado', isAuthenticated())
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route 
-        {...rest} 
-        render={props => (
-        isAuthenticated() ? (
-            <Component {...props} />
-        ) : (
-            <Redirect to={{ pathname: '/', state: { from: props.location } }} />
-        )
-    )} />
-)
+const PrivateRoute = ({ component: Component, ...rest }) => {
+    return (
+        <Route 
+            {...rest} 
+            render={props => (
+            isAuthenticated() ? (
+                <Component {...props} />
+            ) : (
+                <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+            )
+        )} />
+    )
+}
 
 const Routes = () => (
     <BrowserRouter>
@@ -38,4 +37,3 @@ const Routes = () => (
 )
 
 export default Routes
-

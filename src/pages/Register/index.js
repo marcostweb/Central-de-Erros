@@ -14,7 +14,7 @@ export default function Register({ history }){
 
     //localStorage.setItem('user', _id) //salva na local storage
 
-    history.push('./sucesso') // muda pra rota ./página sucesso
+    history.push('/sucesso') // muda pra rota ./página sucesso
   }
 
   return (    
