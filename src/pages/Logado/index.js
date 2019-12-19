@@ -13,6 +13,7 @@ export default function Logado({ history }){
     event.preventDefault() 
     localStorage.clear() // Limpa a sessão do Storage.
     history.push('./') // Envia para fazer login novamente.
+    window.location.reload()
   }
 
   return (    

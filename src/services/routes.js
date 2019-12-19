@@ -9,6 +9,9 @@ import Erro from '../pages/Erro'
 import Logado from '../pages/Logado'
 import Busca from '../pages/Busca'
 
+
+console.log('Teste logado', isAuthenticated())
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route 
         {...rest} 

@@ -9,16 +9,19 @@ export default function Login({ history }){
   const [password, setPassword] = useState('')
   
   async function handleSubmit(event){
-    event.preventDefault() // não recarrega a página que é o padrão
+
+    event.preventDefault() // não recarrega a página que é o padrão.
     
     const response = await api.post('/sessions', { userName, password })
-
+    
     if ((userName === response.data.userName) && (password === response.data.password)) {
       localStorage.setItem('@central-de-erros-login', true) //Salva true em localStorage.
       history.push('./logado') // Leva para a tela de busca.
+     // window.location.reload()
     } else {
       history.push('./erro') // Leva para a mensagem de erro caso o login esteja errado.
     } 
+
   }
 
 return (    
