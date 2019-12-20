@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const api = axios.create({
     baseURL: 'http://demo8412297.mockable.io/'
 })
 
-export default api;
+export default api

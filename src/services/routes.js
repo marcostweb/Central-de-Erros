@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'; 
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import {isAuthenticated} from './authenticated'
 
 import Login from '../pages/Login'
@@ -9,17 +9,19 @@ import Erro from '../pages/Erro'
 import Logado from '../pages/Logado'
 import Busca from '../pages/Busca'
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route 
-        {...rest} 
-        render={props => (
-        isAuthenticated() ? (
-            <Component {...props} />
-        ) : (
-            <Redirect to={{ pathname: '/', state: { from: props.location } }} />
-        )
-    )} />
-)
+const PrivateRoute = ({ component: Component, ...rest }) => {
+    return (
+        <Route 
+            {...rest} 
+            render={props => (
+            isAuthenticated() ? (
+                <Component {...props} />
+            ) : (
+                <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+            )
+        )} />
+    )
+}
 
 const Routes = () => (
     <BrowserRouter>
@@ -35,4 +37,3 @@ const Routes = () => (
 )
 
 export default Routes
-

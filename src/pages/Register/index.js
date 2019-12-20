@@ -1,20 +1,16 @@
-import React, { useState } from 'react';
-//import api from '../../services/api';
+import React, { useState } from 'react'
+import api from '../../services/api'
 
 export default function Register({ history }){
-  const [email, setEmail] = useState('')
+  const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
 
   async function handleSubmit(event){
-    event.preventDefault() // não recarrega a págica que é o padrão
+    event.preventDefault() 
 
-    //const response = await api.post('/sessions', { email })
-
-    //const { _id } = response.data;
-
-    //localStorage.setItem('user', _id) //salva na local storage
-
-    history.push('./sucesso') // muda pra rota ./página sucesso
+    const response = await api.post('/sessions', { userName, password })
+    
+    history.push('/sucesso') 
   }
 
   return (    
@@ -29,8 +25,8 @@ export default function Register({ history }){
                   type="text" 
                   id="userName" 
                   placeholder="Seu usuário"
-                  value={ email }
-                  onChange={event => setEmail(event.target.value)}/>
+                  value={ userName }
+                  onChange={event => setUserName(event.target.value)}/>
 
               <input required
                   type="password" 

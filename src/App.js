@@ -1,9 +1,9 @@
-import React from 'react';
-import Routes from './services/routes';
+import React from 'react'
+import Routes from './services/routes'
 
-import logo from './assets/logo-central-de-erros-linhas.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import logo from './assets/logo-central-de-erros-linhas.svg'
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.css'
 
 function App() {
   return (
@@ -20,4 +20,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
