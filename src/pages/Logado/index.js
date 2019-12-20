@@ -1,27 +1,30 @@
 import React from 'react'
+import { getToken } from '../../services/authenticated'
 
 import usuarioLogado from '../../assets/usuario-logado.png'
 
 export default function Logado({ history }){
 
   async function handleSubmit(event){
-    event.preventDefault() // não recarrega a página que é o padrão
+    event.preventDefault() 
     history.push('/busca') 
   }
 
   async function closeLogin(event){
     event.preventDefault() 
-    localStorage.clear() // Limpa a sessão do Storage.
-    history.push('/') // Envia para fazer login novamente.
+    localStorage.clear() 
+    history.push('/') 
   }
+
+  console.log('Meu Token', getToken())
 
   return (    
     <>
       <div className="row mb-4 align-items-center">
         <div className="col-10 col-md-10">
-          <p className="my-0"><strong>Olá, seja bem-vindo.</strong> Seu token é: 56456456456dasdasdad454654654</p>
+          <p className="my-0"><strong>Olá, seja bem-vindo.</strong> Seu token de acesso é: { getToken() } </p>
         </div>
-        <div className="col-2 col-md-2 text-right pl-0">
+        <div className="col-2 col-md-2 text-center text-lg-right pl-0">
           <span onClick={closeLogin} className="my-1 mx-1">Sair</span>
           <img src={usuarioLogado} alt="Usuário Logado" width="40"/>
         </div>
@@ -103,6 +106,16 @@ export default function Logado({ history }){
                 </th>
                 <td>Descrição do log de erros</td>
                 <td className="text-center">25</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div className="custom-control custom-checkbox my-1 mr-sm-2">
+                    <input type="checkbox" className="custom-control-input" id="customControlInlineWarning"/>
+                    <label className="custom-control-label" for="customControlInlineWarning">Warning</label>
+                  </div>
+                </th>
+                <td>Descrição do log de erros</td>
+                <td className="text-center">16</td>
               </tr>
               <tr>
                 <th scope="row">

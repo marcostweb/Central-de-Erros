@@ -3,18 +3,10 @@ import React from 'react';
 import usuarioLogado from '../../assets/usuario-logado.png'
 
 export default function Busca({ history }){
-  //const [email, setEmail] = useState('')
 
   async function handleSubmit(event){
-    event.preventDefault() // não recarrega a págica que é o padrão
-
-    //const response = await api.post('/sessions', { email })
-    
-    //const { _id } = response.data;
-    
-    //localStorage.setItem('user', _id) //salva na local storage
-
-    history.push('./logado') // muda pra rota ./página sucesso
+    event.preventDefault() 
+    history.push('./logado') 
   }
 
   return (    

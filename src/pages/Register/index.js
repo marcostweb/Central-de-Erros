@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
-import api from '../../services/api'
 
 export default function Register({ history }){
-  const [userName, setUserName] = useState('')
+  const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
 
   async function handleSubmit(event){
     event.preventDefault() 
-
-    const response = await api.post('/sessions', { userName, password })
-    
     history.push('/sucesso') 
   }
 
@@ -23,9 +19,9 @@ export default function Register({ history }){
           <form onSubmit={handleSubmit}>
               <input required
                   type="text" 
-                  id="userName" 
+                  id="username" 
                   placeholder="Seu usuário"
-                  value={ userName }
+                  value={ username }
                   onChange={event => setUserName(event.target.value)}/>
 
               <input required
