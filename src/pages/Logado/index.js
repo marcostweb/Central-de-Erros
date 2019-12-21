@@ -15,6 +15,7 @@ export default function Logado({ history }){
     localStorage.clear() 
     history.push('/') 
   }
+  
 
   return (    
     <>
@@ -30,26 +31,26 @@ export default function Logado({ history }){
       <form onSubmit={handleSubmit}>
         <div className="form-row">
           <div className="col-12 col-md-6 col-lg-3 mb-3">
-            <label className="mr-sm-2 sr-only" for="inlineFormCustomSelect"></label>
+            <label className="mr-sm-2 sr-only" htmlFor ="inlineFormCustomSelect"></label>
             <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
-              <option selected>Selecione...</option>
+              <option value="DEFAULT">Selecione...</option>
               <option value="prod">Produção</option>
               <option value="hml">Homologação</option>
               <option value="dev">Dev</option>
             </select>
           </div>
           <div className="col-6 col-lg-2 mb-3">
-            <label className="mr-sm-2 sr-only" for="inlineFormCustomSelectOrdem"></label>
+            <label className="mr-sm-2 sr-only" htmlFor ="inlineFormCustomSelectOrdem"></label>
             <select className="custom-select mr-sm-2" id="inlineFormCustomSelectOrdem">
-              <option selected>Ordenar por...</option>
+              <option value="DEFAULT">Ordenar por...</option>
               <option value="level">Level</option>
               <option value="freq">Frequência</option>
             </select>
           </div>
           <div className="col-6 col-lg-2 mb-3">
-            <label className="mr-sm-2 sr-only" for="inlineFormCustomSelectBusca"></label>
+            <label className="mr-sm-2 sr-only" htmlFor ="inlineFormCustomSelectBusca"></label>
             <select className="custom-select mr-sm-2" id="inlineFormCustomSelectBusca">
-              <option selected>Buscar por...</option>
+              <option value="DEFAULT">Buscar por...</option>
               <option value="level">Level</option>
               <option value="desc">Decrição</option>
               <option value="origem">Origem</option>
@@ -87,7 +88,7 @@ export default function Logado({ history }){
               <th scope="col">
                 <div className="custom-control custom-checkbox my-1 mr-sm-2">
                   <input type="checkbox" className="custom-control-input" id="customControlInlineLevel"/>
-                  <label className="custom-control-label" for="customControlInlineLevel">LEVEL</label>
+                  <label className="custom-control-label" htmlFor ="customControlInlineLevel">LEVEL</label>
                 </div>
               </th>
               <th scope="col">LOG</th>
@@ -99,7 +100,7 @@ export default function Logado({ history }){
                 <th scope="row">
                   <div className="custom-control custom-checkbox my-1 mr-sm-2">
                     <input type="checkbox" className="custom-control-input" id="customControlInlineError"/>
-                    <label className="custom-control-label" for="customControlInlineError" >Error</label>
+                    <label className="custom-control-label" htmlFor ="customControlInlineError" >Error</label>
                   </div>
                 </th>
                 <td>Descrição do log de erros</td>
@@ -109,7 +110,7 @@ export default function Logado({ history }){
                 <th scope="row">
                   <div className="custom-control custom-checkbox my-1 mr-sm-2">
                     <input type="checkbox" className="custom-control-input" id="customControlInlineWarning"/>
-                    <label className="custom-control-label" for="customControlInlineWarning">Warning</label>
+                    <label className="custom-control-label" htmlFor ="customControlInlineWarning">Warning</label>
                   </div>
                 </th>
                 <td>Descrição do log de erros</td>
@@ -119,7 +120,7 @@ export default function Logado({ history }){
                 <th scope="row">
                   <div className="custom-control custom-checkbox my-1 mr-sm-2">
                     <input type="checkbox" className="custom-control-input" id="customControlInlineDebug"/>
-                    <label className="custom-control-label" for="customControlInlineDebug">Debug</label>
+                    <label className="custom-control-label" htmlFor ="customControlInlineDebug">Debug</label>
                   </div>
                 </th>
                 <td>Descrição do log de erros</td>
