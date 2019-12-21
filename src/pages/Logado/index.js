@@ -16,8 +16,6 @@ export default function Logado({ history }){
     history.push('/') 
   }
 
-  console.log('Meu Token', getToken())
-
   return (    
     <>
       <div className="row mb-4 align-items-center">
@@ -25,7 +23,7 @@ export default function Logado({ history }){
           <p className="my-0"><strong>Olá, seja bem-vindo.</strong> Seu token de acesso é: { getToken() } </p>
         </div>
         <div className="col-2 col-md-2 text-center text-lg-right pl-0">
-          <span onClick={closeLogin} className="my-1 mx-1">Sair</span>
+          <span onClick={closeLogin} className="my-1 mx-1 cursor-pointer">Sair</span>
           <img src={usuarioLogado} alt="Usuário Logado" width="40"/>
         </div>
       </div>  
@@ -62,7 +60,7 @@ export default function Logado({ history }){
               <div className="input-group">
                   <input type="text" className="form-control input-lg" placeholder="Buscar" />
                   <span className="busca">
-                      <button className="btn" type="submit"/>
+                      <button className="btn" type="submit" title="Buscar"/>
                   </span>
               </div>
             </div>
@@ -88,8 +86,8 @@ export default function Logado({ history }){
             <tr>
               <th scope="col">
                 <div className="custom-control custom-checkbox my-1 mr-sm-2">
-                  <input type="checkbox" className="custom-control-input" id="customControlInline"/>
-                  <label className="custom-control-label" for="customControlInline">LEVEL</label>
+                  <input type="checkbox" className="custom-control-input" id="customControlInlineLevel"/>
+                  <label className="custom-control-label" for="customControlInlineLevel">LEVEL</label>
                 </div>
               </th>
               <th scope="col">LOG</th>
@@ -101,7 +99,7 @@ export default function Logado({ history }){
                 <th scope="row">
                   <div className="custom-control custom-checkbox my-1 mr-sm-2">
                     <input type="checkbox" className="custom-control-input" id="customControlInlineError"/>
-                    <label className="custom-control-label" for="customControlInlineError">Error</label>
+                    <label className="custom-control-label" for="customControlInlineError" >Error</label>
                   </div>
                 </th>
                 <td>Descrição do log de erros</td>
@@ -120,12 +118,12 @@ export default function Logado({ history }){
               <tr>
                 <th scope="row">
                   <div className="custom-control custom-checkbox my-1 mr-sm-2">
-                    <input type="checkbox" className="custom-control-input" id="customControlInlineWarning"/>
-                    <label className="custom-control-label" for="customControlInlineWarning">Warning</label>
+                    <input type="checkbox" className="custom-control-input" id="customControlInlineDebug"/>
+                    <label className="custom-control-label" for="customControlInlineDebug">Debug</label>
                   </div>
                 </th>
                 <td>Descrição do log de erros</td>
-                <td className="text-center">16</td>
+                <td className="text-center">20</td>
               </tr>
           </tbody>
         </table>

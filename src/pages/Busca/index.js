@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { getToken } from '../../services/authenticated'
 
 import usuarioLogado from '../../assets/usuario-logado.png'
 
@@ -13,7 +14,7 @@ export default function Busca({ history }){
     <>
       <div className="row mb-4 align-items-center">
         <div className="col-10 col-md-10">
-          <p className="my-0"><strong>Olá, seja bem-vindo.</strong> Seu token é: 56456456456dasdasdad454654654</p>
+        <p className="my-0"><strong>Olá, seja bem-vindo.</strong> Seu token de acesso é: { getToken() } </p>
         </div>
         <div className="col-2 col-md-2 text-right pl-0">
           <img src={usuarioLogado} alt="Usuário Logado" width="40"/>
@@ -40,7 +41,7 @@ export default function Busca({ history }){
         </div>
         <div className="col-12 col-md-4 mb-3">
           <strong className="mb-2 d-block">Eventos</strong>
-          <span>1000</span>
+          <span>25</span>
         </div>
         <div className="col-12 col-md-8 mb-3">
           <strong className="mb-2 d-block">Detalhes</strong>
@@ -51,7 +52,7 @@ export default function Busca({ history }){
         </div>
         <div className="col-12 col-md-4 mb-3">
           <strong className="mb-2 d-block">Coletado por:</strong>
-          <span>54564568975454FSFSDFSFS56</span>
+          <span> { getToken() }</span>
           <p>Marcos Roberto Teixeira</p>
         </div>
       </div>
